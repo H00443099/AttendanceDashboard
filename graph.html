@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.3.1/dist/css/coreui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/icons/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.3.1/dist/js/coreui.bundle.min.js"></script>
+</head>
+
+<body style="background-color:#ddedf3;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    
+    <!-- Main Flex Container -->
+    <div class="d-flex min-vh-100">
+        <!-- Sidebar (Fixed Width) -->
+        
+
+        
+        <div class="flex-grow-1 p-4 bg-white">
+        <!-- Main Content (Flexible Width)
+            <div class="dropdown mb-3">
+                <label for="graph-select">Choose a graph:</label>
+                <select id="graph-select" onchange="navigateToGraph()" class="form-select">
+                    <option value="">Select a graph</option>
+                    <option value="/individual_attendance">Individual Attendance Line Graph</option>
+                    <option value="/average_attendance">Average Attendance Line Graph</option>
+                    <option value="/average_absence_bar">Average Absence Bar Graph</option>
+                    <option value="/final_absence_pie">Final Absence Pie Chart</option>
+                    <option value="/normal_table">Normal Table Data</option>
+                </select>
+            </div> -->
+            <div class="card" style="max-width: 100%;">
+                <div class="card-body">
+                    <div>
+                        {{ graph_html | safe }}
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="description mt-3">
+                <p>{{ description | safe }}</p>  
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function navigateToGraph() {
+            const selectedGraph = document.getElementById('graph-select').value;
+            if (selectedGraph) {
+                window.location.href = selectedGraph;
+            }
+        }
+    </script>
+
+</body>
+</html>
